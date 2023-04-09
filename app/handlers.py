@@ -107,18 +107,20 @@ def take_data_second(user_form: check_inn = Body(..., embed=True), database=Depe
     else:
         result['badlist'] = {'status': 0, 'value': "Чист как белый лист"}
 
+    return result
+
 
     #list(pd.read_sql(sql, connect_db()).to_dict('index').values())
 
-    return {
-            'found': True,
-            'inn': INN,
-            'name': 'ООО Ромашка',
-            'years': {'status': 1, 'value': "3 месяца"},
-            'capital': {'status': 3, 'values': "10 млрд"},
-            'contracts': {'status': 1, 'value': "2 контракта"},
-            'badlist': {'status': 1, 'value': "Потому-что негодяй"}
-            }
+    # return {
+    #         'found': True,
+    #         'inn': INN,
+    #         'name': 'ООО Ромашка',
+    #         'years': {'status': 1, 'value': "3 месяца"},
+    #         'capital': {'status': 3, 'values': "10 млрд"},
+    #         'contracts': {'status': 1, 'value': "2 контракта"},
+    #         'badlist': {'status': 1, 'value': "Потому-что негодяй"}
+    #         }
 
 #-----------------------------------------------------------------------------------------
 
