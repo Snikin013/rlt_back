@@ -59,9 +59,9 @@ def take_data_second(user_form: check_inn = Body(..., embed=True), database=Depe
 
     df = pd.read_sql(sql, connect_db())
     egrul = pd.read_sql(sql_egrul, connect_db())
-    egrul['capital_size'].fillna(0, inplace=True)
+    egrul['capital_size'].fillna(1, inplace=True)
     if egrul['capital_size'].values == ['']:
-        egrul['capital_size'] = 0
+        egrul['capital_size'] = 1
     contr = pd.read_sql(sql_contr, connect_db())
  
 
@@ -105,7 +105,7 @@ def take_data_second(user_form: check_inn = Body(..., embed=True), database=Depe
         if int(df['year']) < pd.datetime.now().year:
             result['badlist'] = {'status': 1, 'value': df['include_reason']}
     else:
-        result['badlist'] = {'status': 0, 'value': "Чист как белый лист"}
+        result['badlist'] = {'status': 2, 'value': "Чист как белый лист"}
 
     return result
 
