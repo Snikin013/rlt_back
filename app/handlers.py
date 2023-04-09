@@ -80,13 +80,13 @@ def take_data_second(user_form: check_inn = Body(..., embed=True), database=Depe
             result['years'] = {'status': 4, 'value': '{} years'.format(int(int(egrul['day_dif']) / 365))}
 #-----------------------CAPITAL-------------------------------------------------------------------
         if int(egrul['capital_size'].iloc[0]) < 10**6:
-            result['capital'] = {'status': 1, 'value': '{} rub'.format(int(egrul['capital_size']))}
+            result['capital'] = {'status': 1, 'values': '{} rub'.format(int(egrul['capital_size']))}
         elif int(egrul['capital_size'].iloc[0]) >= 10**6 and int(egrul['capital_size']) < 10**9 * 2:
-            result['capital'] = {'status': 2, 'value': '{} rub'.format(int(egrul['capital_size']))}
+            result['capital'] = {'status': 2, 'values': '{} rub'.format(int(egrul['capital_size']))}
         elif int(egrul['capital_size'].iloc[0]) >= 10**9 * 2 and int(egrul['capital_size']) < 10**10:
-            result['capital'] = {'status': 3, 'value': '{} rub'.format(int(egrul['capital_size']))}
+            result['capital'] = {'status': 3, 'values': '{} rub'.format(int(egrul['capital_size']))}
         elif int(egrul['capital_size'].iloc[0]) >= 10**10:
-            result['capital'] = {'status': 4, 'value': '{} rub'.format(int(egrul['capital_size']))}
+            result['capital'] = {'status': 4, 'values': '{} rub'.format(int(egrul['capital_size']))}
 #-----------------------CONTRACTS-----------------------------------------------------------------
         if int(contr['count'].iloc[0]) <= 5:
             result['contracts'] = {'status': 1, 'value': '{} контрактов'.format(int(contr['count']))}
